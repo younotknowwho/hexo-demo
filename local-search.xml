@@ -14,7 +14,15 @@
     
     <tags>
       
-      <tag>warpx, Linux, conda, cmake</tag>
+      <tag>warpx</tag>
+      
+      <tag>Linux</tag>
+      
+      <tag>conda</tag>
+      
+      <tag>并行计算</tag>
+      
+      <tag>PIC</tag>
       
     </tags>
     
