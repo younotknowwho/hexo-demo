@@ -19,24 +19,22 @@
   <meta name="author" content="You Know Who">
   <meta name="keywords" content="">
   
-    <meta name="description" content="基本操作Front-matterFront-matter 是文件开头的 YAML 或 JSON 代码块，用于配置写作设置。    设置 描述 默认值    layout 布局 config.default_layout   title 标题 文章的文件名   date 建立日期 文件建立日期   updated 更新日期 文件更新日期   comments 开启文章的评论功能 true   tag">
+    <meta name="description" content="方法1：从源代码安装 warpx 程序安装依赖在官网的提供的方案中，选择用 apt 安装。运行下述命令： 12sudo apt updatesudo apt install build-essential ccache cmake g++ git libfftw3-mpi-dev libfftw3-dev libhdf5-openmpi-dev libopenmpi-dev pkg-config">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo使用方法学习记录">
-<meta property="og:url" content="https://younotknowwho.github.io/2025/09/10/Hexo%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:title" content="warpx 程序安装指南">
+<meta property="og:url" content="https://younotknowwho.github.io/2025/12/08/warpx-install-guide/index.html">
 <meta property="og:site_name" content="Blog of You Know Who">
-<meta property="og:description" content="基本操作Front-matterFront-matter 是文件开头的 YAML 或 JSON 代码块，用于配置写作设置。    设置 描述 默认值    layout 布局 config.default_layout   title 标题 文章的文件名   date 建立日期 文件建立日期   updated 更新日期 文件更新日期   comments 开启文章的评论功能 true   tag">
+<meta property="og:description" content="方法1：从源代码安装 warpx 程序安装依赖在官网的提供的方案中，选择用 apt 安装。运行下述命令： 12sudo apt updatesudo apt install build-essential ccache cmake g++ git libfftw3-mpi-dev libfftw3-dev libhdf5-openmpi-dev libopenmpi-dev pkg-config">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://younotknowwho.github.io/hexo-demo/videos/HappyNewYear-MV-poster.png">
-<meta property="article:published_time" content="2025-09-10T12:31:23.553Z">
-<meta property="article:modified_time" content="2025-09-10T13:21:48.909Z">
+<meta property="article:published_time" content="2025-12-08T14:15:33.000Z">
+<meta property="article:modified_time" content="2025-12-08T14:18:29.578Z">
 <meta property="article:author" content="You Know Who">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="warpx, Linux, conda, cmake">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://younotknowwho.github.io/hexo-demo/videos/HappyNewYear-MV-poster.png">
   
   
   
-  <title>Hexo使用方法学习记录 - Blog of You Know Who</title>
+  <title>warpx 程序安装指南 - Blog of You Know Who</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hexo使用方法学习记录"></span>
+            <span id="subtitle" data-typed-text="warpx 程序安装指南"></span>
           
         </div>
 
@@ -213,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-09-10 20:31" pubdate>
-          September 10, 2025 pm
+        <time datetime="2025-12-08 22:15" pubdate>
+          December 8, 2025 pm
         </time>
       </span>
     
@@ -225,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          259 words
+          907 words
         
       </span>
     
@@ -236,7 +234,7 @@
         
         
         
-          3 mins
+          8 mins
         
       </span>
     
@@ -273,100 +271,77 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hexo使用方法学习记录</h1>
+            <h1 id="seo-header">warpx 程序安装指南</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h3><p><code>Front-matter</code> 是文件开头的 YAML 或 JSON 代码块，用于配置写作设置。</p>
-<table>
-<thead>
-<tr>
-<th>设置</th>
-<th>描述</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>layout</code></td>
-<td>布局</td>
-<td><a target="_blank" rel="noopener" href="https://hexo.io/docs/configuration#Writing"><code>config.default_layout</code></a></td>
-</tr>
-<tr>
-<td><code>title</code></td>
-<td>标题</td>
-<td>文章的文件名</td>
-</tr>
-<tr>
-<td><code>date</code></td>
-<td>建立日期</td>
-<td>文件建立日期</td>
-</tr>
-<tr>
-<td><code>updated</code></td>
-<td>更新日期</td>
-<td>文件更新日期</td>
-</tr>
-<tr>
-<td><code>comments</code></td>
-<td>开启文章的评论功能</td>
-<td><code>true</code></td>
-</tr>
-<tr>
-<td><code>tags</code></td>
-<td>标签（不适用于分页）</td>
-<td></td>
-</tr>
-<tr>
-<td><code>categories</code></td>
-<td>分类（不适用于分页）</td>
-<td></td>
-</tr>
-<tr>
-<td><code>permalink</code></td>
-<td>覆盖文章的永久链接. 永久链接应该以 <code>/</code> 或 <code>.html</code> 结尾</td>
-<td><code>null</code></td>
-</tr>
-<tr>
-<td><code>excerpt</code></td>
-<td>纯文本的页面摘要。 使用 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins#%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81%E5%92%8C%E6%88%AA%E6%96%AD">该插件</a> 来格式化文本</td>
-<td></td>
-</tr>
-<tr>
-<td><code>disableNunjucks</code></td>
-<td>启用时禁用 Nunjucks 标签 <code>&#123;&#123; &#125;&#125;</code>&#x2F;<code>&#123;% %&#125;</code> 和 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins">标签插件</a> 的渲染功能</td>
-<td>false</td>
-</tr>
-<tr>
-<td><code>lang</code></td>
-<td>设置语言以覆盖 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/internationalization#%E8%B7%AF%E5%BE%84">自动检测</a></td>
-<td>继承自 <code>_config.yml</code></td>
-</tr>
-<tr>
-<td><code>published</code></td>
-<td>文章是否发布</td>
-<td>对于 <code>_posts</code> 下的文章为 <code>true</code>，对于 <code>_draft</code> 下的文章为 <code>false</code></td>
-</tr>
-</tbody></table>
-<h3 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h3><blockquote><p>Morality is not really the doctrine of how to make ourselves happy but of how we are to be worthy of happiness.</p>
-<footer><strong>Immanuel Kant, Critique of Practical Reason</strong><cite><a target="_blank" rel="noopener" href="https://www.britannica.com/quotes/Immanuel-Kant">Immanuel Kant: Quotes</a></cite></footer></blockquote>
+                <h1 id="方法1：从源代码安装-warpx-程序"><a href="#方法1：从源代码安装-warpx-程序" class="headerlink" title="方法1：从源代码安装 warpx 程序"></a>方法1：从源代码安装 warpx 程序</h1><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>在官网的提供的方案中，选择用 <code>apt</code> 安装。运行下述命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt update<br><span class="hljs-built_in">sudo</span> apt install build-essential ccache cmake g++ git libfftw3-mpi-dev libfftw3-dev libhdf5-openmpi-dev libopenmpi-dev pkg-config python3 python3-dev python3-matplotlib python3-mpi4py python3-numpy python3-pandas python3-pip python3-scipy python3-venv<br></code></pre></td></tr></table></figure>
 
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello world!&quot;</span>)<br></code></pre></td></tr></table></figure>
-
-<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><img src="/hexo-demo/videos/HappyNewYear-MV-poster.png" srcset="/hexo-demo/img/loading.gif" lazyload class="" width="400" height="300" title="恭喜你发财">
-
-<h3 id="插入iframe"><a href="#插入iframe" class="headerlink" title="插入iframe"></a>插入iframe</h3><ul>
-<li><p>示例1：网易云音乐</p>
-<iframe src="https://music.163.com/outchain/player?type=0&id=14270481490&auto=0&height=400" width="80%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe>
-</li>
-<li><p>示例2：B站视频</p>
-<iframe src="https://xbeibeix.com/api/bilibili/biliplayer/?url=https://www.bilibili.com/video/BV1CJ4m1P7hT/" width="80%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe></li>
+<p><strong>注意</strong>：要求C++编译器至少支持C++ 17标准，要求 cmake 版本不低于3.24，要求 python 的版本不低于3.8。如果默认的源不能支持安装符合版本的软件（例如，Ubuntu 1804 就是如此），可以按照下述方法解决。</p>
+<h3 id="cmake-升级："><a href="#cmake-升级：" class="headerlink" title="cmake 升级："></a>cmake 升级：</h3><ul>
+<li>到官网下载新版本的 cmake 程序的安装文件，链接为：<a target="_blank" rel="noopener" href="https://cmake.org/files/">https://cmake.org/files/</a> 。例如，安装3.30版本，则跳转到 v3.30 目录，下载安装包，其链接为： <a target="_blank" rel="noopener" href="https://cmake.org/files/v3.30/cmake-3.30.0-linux-x86_64.tar.gz">https://cmake.org/files/v3.30/cmake-3.30.0-linux-x86_64.tar.gz</a> 。</li>
+<li>然后解压缩：</li>
 </ul>
-<blockquote>
-<p>鸣谢API：<code>https://xbeibeix.com/api/bilibili/biliplayer/?url=&lt;BILIBILI视频地址&gt;</code></p>
-</blockquote>
-<h3 id="引用其他帖子"><a href="#引用其他帖子" class="headerlink" title="引用其他帖子"></a>引用其他帖子</h3><a href="/hexo-demo/2025/09/01/%E5%88%A9%E7%94%A8-Hexo-%E4%B8%8E-GitHub-Pages-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/" title="利用 Hexo 与 GitHub Pages 搭建个人博客指南">利用 Hexo 与 GitHub Pages 搭建个人博客指南</a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -zxf cmake-3.30.0-linux-x86_64.tar.gz<br></code></pre></td></tr></table></figure>
 
+<ul>
+<li>假设解压缩到目录 <code>$HOME/Downloads/cmake-3.30.0-linux-x86_64</code>，则可以将其中的 <code>bin</code> 目录添加到 PATH 中：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> PATH=<span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/Downloads/cmake-3.30.0-linux-x86_64:<span class="hljs-variable">$PATH</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>（也可以修改 <code>~/.bashrc</code> 文件，然后 <code>source</code> 一下）</p>
+<h3 id="python-升级"><a href="#python-升级" class="headerlink" title="python 升级"></a>python 升级</h3><p>可以通过 <code>conda</code> 创建符合版本要求的 Python 虚拟环境实现，然后在对应的 Python 虚拟环境中编译 warpx 源代码。</p>
+<h3 id="gcc-g-升级"><a href="#gcc-g-升级" class="headerlink" title="gcc&#x2F;g++ 升级"></a>gcc&#x2F;g++ 升级</h3><p>Ubuntu 1804 的默认源不能安装支持 C++ 17 的 gcc&#x2F;g++ 编译器。一个解决方法是，添加PPA软件源，然后安装 <code>gcc-11</code> 与 <code>g++-11</code>。具体步骤如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 添加软件源</span><br><span class="hljs-built_in">sudo</span> add-apt-repository ppa:ubuntu-toolchain-r/test<br><span class="hljs-built_in">sudo</span> apt update<br><br><span class="hljs-comment"># 安装 gcc-11 与 g++-11</span><br><span class="hljs-built_in">sudo</span> apt install gcc-11 g++-11<br><br><span class="hljs-comment"># 更新索引</span><br><span class="hljs-built_in">sudo</span> updatedb &amp;&amp; ldconfig<br></code></pre></td></tr></table></figure>
+
+<p>此时，运行命令 <code>locate gcc | grep -E &quot;/usr/bin/gcc-&quot;</code> 可以看到<code>gcc-11</code> 与 <code>g++-11</code>已经被安装，但旧的版本<code>gcc-7</code> 与 <code>g++-7</code>也存在。接下来，我们要更改默认使用的版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 1 &amp;&amp; \<br><span class="hljs-built_in">sudo</span> update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 10 &amp;&amp; \<br><span class="hljs-built_in">sudo</span> update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 1 &amp;&amp; \<br><span class="hljs-built_in">sudo</span> update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 10<br></code></pre></td></tr></table></figure>
+
+<p>然后，运行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -v<br>g++ -v<br></code></pre></td></tr></table></figure>
+
+<p>即可发现版本已经更新到了g<code>cc-11</code> 与 <code>g++-11</code>。</p>
+<h2 id="编译源代码"><a href="#编译源代码" class="headerlink" title="编译源代码"></a>编译源代码</h2><p>下载源代码以及所需的依赖：</p>
+<p>WarpX 程序：<a target="_blank" rel="noopener" href="https://github.com/BLAST-WarpX/warpx">https://github.com/BLAST-WarpX/warpx</a></p>
+<p>依赖1：amrex，链接：<a target="_blank" rel="noopener" href="https://github.com/AMReX-Codes/amrex">https://github.com/AMReX-Codes/amrex</a></p>
+<p>依赖2：picsar，链接：<a target="_blank" rel="noopener" href="https://github.com/ECP-WarpX/picsar">https://github.com/ECP-WarpX/picsar</a></p>
+<p>依赖3：openpmd-api，链接：<a target="_blank" rel="noopener" href="https://github.com/openPMD/openPMD-api">https://github.com/openPMD/openPMD-api</a></p>
+<p>将上述依赖程序解压缩，暂时不需要编译。目前看来，openpmd-api 可以国内网络直接连接，其余则不能。为此，增加编译选项并进行 cmake 配置如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 切换到 warpx 代码所在目录</span><br>cmake -S . -B build -DWarpX_PYTHON=OFF \ <br> -DCMAKE_INSTALL_PREFIX=<span class="hljs-variable">$HOME</span>/Documents/warpx_install \<br> -DWarpX_amrex_internal=OFF \<br> -DWarpX_amrex_src=<span class="hljs-variable">$HOME</span>/Documents/my_Python_work/Dependencies_warpx/amrex \<br> -DWarpX_picsar_internal=OFF \<br> -DWarpX_picsar_src=<span class="hljs-variable">$HOME</span>/Documents/my_Python_work/Dependencies_warpx/picsar<br></code></pre></td></tr></table></figure>
+
+<p>然后编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cmake --build build -j 2	<span class="hljs-comment"># -j 之后的参数越大则所需内存越多；以 4GB 内存为例，取 2 是合适的</span><br></code></pre></td></tr></table></figure>
+
+<p>然后进入 <code>build</code> 目录，我们发现在其 <code>bin</code> 目录下存在 warpx 的可执行文件。需要注意<code>bin</code>目录下既有可执行文件，又有对应的软链接，可以用 <code>ll</code> 命令加以区分。</p>
+<p>目前只有 <code>warpx.3d</code> 程序，可以根据如下链接中的步骤进行测试：<a target="_blank" rel="noopener" href="https://warpx.readthedocs.io/en/latest/usage/examples/beam_beam_collision/README.html">https://warpx.readthedocs.io/en/latest/usage/examples/beam_beam_collision/README.html</a> 。</p>
+<p>若还需要其他维度（如一维、二维）和形状（如球形、柱形）的可执行程序，我们需要在配置 cmake 时增加<code>-DWarpX_DIMS</code>选项，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 切换到 warpx 代码所在目录</span><br><br><span class="hljs-comment"># 配置</span><br>cmake -S . -B build -DWarpX_PYTHON=OFF \ <br> -DWarpX_DIMS=<span class="hljs-string">&quot;1;2;3;RZ;RCYLINDER;RSPHERE&quot;</span> \<br> -DCMAKE_INSTALL_PREFIX=<span class="hljs-variable">$HOME</span>/Documents/warpx_install \<br> -DWarpX_amrex_internal=OFF \<br> -DWarpX_amrex_src=<span class="hljs-variable">$HOME</span>/Documents/my_Python_work/Dependencies_warpx/amrex \<br> -DWarpX_picsar_internal=OFF \<br> -DWarpX_picsar_src=<span class="hljs-variable">$HOME</span>/Documents/my_Python_work/Dependencies_warpx/picsar<br> <br><span class="hljs-comment"># 编译</span><br>cmake --build build -j 2<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="方法2：通过Conda安装"><a href="#方法2：通过Conda安装" class="headerlink" title="方法2：通过Conda安装"></a>方法2：通过Conda安装</h1><p><strong>NOTE</strong>: Conda’s WarpX is <strong>serial</strong>! To get a parallel WarpX version, install it from source. So, if you install warpx via conda, you can use <a target="_blank" rel="noopener" href="https://blast-warpx.github.io/warpx-tutorials/a-beam-beam-collision.html">this example</a> to run the program for a test.</p>
+<ol>
+<li>update apt</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt update<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>install <code>mamba</code>:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda install conda-forge::mamba<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>install <code>warpx</code> via <code>mambda</code>:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mamba create -n plasma_warpx -c conda-forge warpx<br></code></pre></td></tr></table></figure>
+
+<p>Note that we have created a new environment called <code>plasma_warpx</code>.</p>
+<ol start="4">
+<li>activate the virtual environment we created:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(mamba shell hook --shell bash)</span>&quot;</span><br>mamba activate plasma_warpx<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -378,7 +353,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/hexo-demo/tags/Hexo/" class="print-no-link">#Hexo</a>
+        <a href="/hexo-demo/tags/warpx-Linux-conda-cmake/" class="print-no-link">#warpx, Linux, conda, cmake</a>
       
     </div>
   
@@ -390,8 +365,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hexo使用方法学习记录</div>
-      <div>https://younotknowwho.github.io/2025/09/10/Hexo使用方法学习记录/</div>
+      <div>warpx 程序安装指南</div>
+      <div>https://younotknowwho.github.io/2025/12/08/warpx-install-guide/</div>
     </div>
     <div class="license-meta">
       
@@ -403,7 +378,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>September 10, 2025</div>
+          <div>December 8, 2025</div>
         </div>
       
       
@@ -435,18 +410,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/hexo-demo/2025/12/08/warpx-install-guide/" title="warpx 程序安装指南">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">warpx 程序安装指南</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/hexo-demo/2025/09/02/%E7%94%A8C-%E7%BC%96%E5%86%99%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC%E7%A8%8B%E5%BA%8F/" title="用C++编写线性插值程序">
-                        <span class="hidden-mobile">用C++编写线性插值程序</span>
+                      <a href="/hexo-demo/2025/09/10/Hexo%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="Hexo使用方法学习记录">
+                        <span class="hidden-mobile">Hexo使用方法学习记录</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
