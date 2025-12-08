@@ -27,7 +27,7 @@
 <meta property="og:description" content="方法1：从源代码安装 warpx 程序安装依赖在官网的提供的方案中，选择用 apt 安装。运行下述命令： 12sudo apt updatesudo apt install build-essential ccache cmake g++ git libfftw3-mpi-dev libfftw3-dev libhdf5-openmpi-dev libopenmpi-dev pkg-config">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-12-08T14:15:33.000Z">
-<meta property="article:modified_time" content="2025-12-08T14:18:29.578Z">
+<meta property="article:modified_time" content="2025-12-08T14:20:19.029Z">
 <meta property="article:author" content="You Know Who">
 <meta property="article:tag" content="warpx, Linux, conda, cmake">
 <meta name="twitter:card" content="summary_large_image">
@@ -302,7 +302,7 @@
 <p>然后，运行如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -v<br>g++ -v<br></code></pre></td></tr></table></figure>
 
-<p>即可发现版本已经更新到了g<code>cc-11</code> 与 <code>g++-11</code>。</p>
+<p>即可发现版本已经更新到了<code>gcc-11</code> 与 <code>g++-11</code>。</p>
 <h2 id="编译源代码"><a href="#编译源代码" class="headerlink" title="编译源代码"></a>编译源代码</h2><p>下载源代码以及所需的依赖：</p>
 <p>WarpX 程序：<a target="_blank" rel="noopener" href="https://github.com/BLAST-WarpX/warpx">https://github.com/BLAST-WarpX/warpx</a></p>
 <p>依赖1：amrex，链接：<a target="_blank" rel="noopener" href="https://github.com/AMReX-Codes/amrex">https://github.com/AMReX-Codes/amrex</a></p>
@@ -315,7 +315,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cmake --build build -j 2	<span class="hljs-comment"># -j 之后的参数越大则所需内存越多；以 4GB 内存为例，取 2 是合适的</span><br></code></pre></td></tr></table></figure>
 
 <p>然后进入 <code>build</code> 目录，我们发现在其 <code>bin</code> 目录下存在 warpx 的可执行文件。需要注意<code>bin</code>目录下既有可执行文件，又有对应的软链接，可以用 <code>ll</code> 命令加以区分。</p>
-<p>目前只有 <code>warpx.3d</code> 程序，可以根据如下链接中的步骤进行测试：<a target="_blank" rel="noopener" href="https://warpx.readthedocs.io/en/latest/usage/examples/beam_beam_collision/README.html">https://warpx.readthedocs.io/en/latest/usage/examples/beam_beam_collision/README.html</a> 。</p>
+<p>目前只有 <code>warpx.3d</code> 程序，可以根据如下链接中的步骤进行测试：</p>
+<p><a target="_blank" rel="noopener" href="https://warpx.readthedocs.io/en/latest/usage/examples/beam_beam_collision/README.html">https://warpx.readthedocs.io/en/latest/usage/examples/beam_beam_collision/README.html</a> </p>
 <p>若还需要其他维度（如一维、二维）和形状（如球形、柱形）的可执行程序，我们需要在配置 cmake 时增加<code>-DWarpX_DIMS</code>选项，例如：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 切换到 warpx 代码所在目录</span><br><br><span class="hljs-comment"># 配置</span><br>cmake -S . -B build -DWarpX_PYTHON=OFF \ <br> -DWarpX_DIMS=<span class="hljs-string">&quot;1;2;3;RZ;RCYLINDER;RSPHERE&quot;</span> \<br> -DCMAKE_INSTALL_PREFIX=<span class="hljs-variable">$HOME</span>/Documents/warpx_install \<br> -DWarpX_amrex_internal=OFF \<br> -DWarpX_amrex_src=<span class="hljs-variable">$HOME</span>/Documents/my_Python_work/Dependencies_warpx/amrex \<br> -DWarpX_picsar_internal=OFF \<br> -DWarpX_picsar_src=<span class="hljs-variable">$HOME</span>/Documents/my_Python_work/Dependencies_warpx/picsar<br> <br><span class="hljs-comment"># 编译</span><br>cmake --build build -j 2<br><br></code></pre></td></tr></table></figure>
 
