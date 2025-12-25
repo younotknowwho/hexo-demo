@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>编程小tips记录</title>
+    <link href="/hexo-demo/2025/12/25/tips-summary/"/>
+    <url>/hexo-demo/2025/12/25/tips-summary/</url>
+    
+    <content type="html"><![CDATA[<h2 id="快速删除项目的-node-modules-目录"><a href="#快速删除项目的-node-modules-目录" class="headerlink" title="快速删除项目的 node_modules 目录"></a>快速删除项目的 node_modules 目录</h2><p>在 Windows 系统下，直接删除 <code>node_modules</code> 目录花费很长时间。为快速删除，可以使用 <code>rimraf</code> 命令。</p><ol><li>安装 <code>rimraf</code> 模块（全局安装）：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install rimraf -g<br></code></pre></td></tr></table></figure><ol start="2"><li>用 <code>rimraf</code> 命令删除 <code>node_modules</code> 目录：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rimraf node_modules<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>node_modules</tag>
+      
+      <tag>rimraf</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>warpx 程序安装指南</title>
     <link href="/hexo-demo/2025/12/08/warpx-install-guide/"/>
     <url>/hexo-demo/2025/12/08/warpx-install-guide/</url>
