@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>EDIPIC-2D程序在Linux上的安装</title>
+    <link href="/hexo-demo/2026/01/04/edipic-2d-install-guide/"/>
+    <url>/hexo-demo/2026/01/04/edipic-2d-install-guide/</url>
+    
+    <content type="html"><![CDATA[<p>以Ubuntu 18.04为例（Ubuntu 2204亦可以）：</p><h2 id="更新软件源："><a href="#更新软件源：" class="headerlink" title="更新软件源："></a><strong>更新软件源：</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt-get update<br></code></pre></td></tr></table></figure><h2 id="安装MPICH："><a href="#安装MPICH：" class="headerlink" title="安装MPICH："></a><strong>安装MPICH：</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt-get install mpich<br></code></pre></td></tr></table></figure><p>安装完成后，通过如下命令检验。如MPICH已成功安装完毕，则下述命令会输出各个程序的路径：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">which</span> mpif90<br><span class="hljs-built_in">which</span> mpicc<br><span class="hljs-built_in">which</span> mpirun<br></code></pre></td></tr></table></figure><h2 id="安装PETSC："><a href="#安装PETSC：" class="headerlink" title="安装PETSC："></a><strong>安装PETSC：</strong></h2><p>接下来我们需要安装很多EDIPIC-2D程序正常运行所必需的依赖。首先，请确保Python 3可用，pip3可用。一般而言，Ubuntu 18.04会自带Python 3.6.9，而pip3不一定已安装；若在终端输入<code>pip3</code>而提示找不到相应的命令，请按照其提示先安装pip3工具，然后进行如下的操作。</p><p>为简便起见，本文中所有下载的安装包都在<code>$HOME/Download_files</code>目录下。</p><h3 id="下载安装包并解压缩"><a href="#下载安装包并解压缩" class="headerlink" title="下载安装包并解压缩"></a><strong>下载安装包并解压缩</strong></h3><p>注意：根据EDIPIC-2D这一古程序的要求，PETSC需为3.14.6版本。可以从github下载，或者按照如下命令下载并解压缩安装包：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.14.6.tar.gz<br>tar -zxvf petsc-3.14.6.tar.gz<br><span class="hljs-built_in">cd</span> petsc-3.14.6<br></code></pre></td></tr></table></figure><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a><strong>配置</strong></h3><p>由于PETSC本身需要BLASLAPACK，EDIPIC-2D的运行需要配合使用HYPRE，故可提前下载这两个软件的压缩包。例如，按照软件安装过程中的提示，从 <a href="https://codeload.github.com/hypre-space/hypre/tar.gz/refs/tags/v2.19.0">这个链接</a> 下载HYPRE，从 <a href="https://bitbucket.org/petsc/pkg-fblaslapack/get/v3.4.2-p3.tar.gz">这个链接</a> 下载BLASLAPACK。下载后的压缩包可将其统一放置在一个路径，例如<code>$HOME/Download_files/</code>目录下。</p><p>配置PETSC，通过<code>--download-fblaslapack</code>与<code>--download-hypre</code>参数分别指定BLASLAPACK、HYPRE压缩包的路径；另外，可以通过<code>--prefix</code>参数指定最终的软件安装位置。例如：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./configure --download-fblaslapack=<span class="hljs-variable">$HOME</span>/Download_files/petsc-pkg-fblaslapack-e8a03f57d64c.tar.gz --download-hypre=<span class="hljs-variable">$HOME</span>/Download_files/hypre-2.19.0.tar.gz --prefix=<span class="hljs-variable">$HOME</span>/petsc_final_Install<br></code></pre></td></tr></table></figure><p>如出现其他依赖库的缺失，则根据提示首先下载安装包，然后添加相应的参数即可。</p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong>安装</strong></h3><p>配置完成后，根据提示依次进行如下的<code>make</code>操作：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">make PETSC_DIR=<span class="hljs-variable">$HOME</span>/Download_files/petsc-3.14.6 PETSC_ARCH=arch-linux-c-debug all<br>make PETSC_DIR=<span class="hljs-variable">$HOME</span>/Download_files/petsc-3.14.6 PETSC_ARCH=arch-linux-c-debug install<br>make PETSC_DIR=<span class="hljs-variable">$HOME</span>/petsc_final_Install PETSC_ARCH=<span class="hljs-string">&quot;&quot;</span> check<br></code></pre></td></tr></table></figure><p>完成后，每次在调用PETSC库（包括编译及运行EDIPIC-2D）之前，需首先调用如下的命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> PETSC_DIR=<span class="hljs-variable">$HOME</span>/petsc_final_Install<br><span class="hljs-built_in">export</span> LD_LIBRARY_PATH=<span class="hljs-variable">$&#123;PETSC_DIR&#125;</span>/lib:<span class="hljs-variable">$&#123;LD_LIBRARY_PATH&#125;</span><br></code></pre></td></tr></table></figure><h2 id="安装EDIPIC-2D程序"><a href="#安装EDIPIC-2D程序" class="headerlink" title="安装EDIPIC-2D程序"></a><strong>安装EDIPIC-2D程序</strong></h2><p>首先编译EDIPIC-2D程序。执行上述两行代码，然后切换到EDIPIC-2D程序的<code>src</code>目录下，执行<code>make</code>操作。EDIPIC-2D的下载链接是 <a href="https://github.com/PrincetonUniversity/EDIPIC-2D">这个链接</a> 。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span>/EDIPIC-2D-main/<br><span class="hljs-built_in">cd</span> src<br>make<br></code></pre></td></tr></table></figure><p>编译完成后，<code>src</code>目录下会出现<code>edipic2d</code>的可执行程序。我们使用软件包提供的示例进行测试。例如：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ../input_data_dc_inner_object_avg_heat_flows/<br><span class="hljs-built_in">cp</span> ../src/edipic2d  .<br>mpirun -n 16 ./edipic2d<br></code></pre></td></tr></table></figure><h2 id="Bugs-解决方法记录"><a href="#Bugs-解决方法记录" class="headerlink" title="Bugs 解决方法记录"></a>Bugs 解决方法记录</h2><p>（1）MPICH与OPENMPI冲突：删除OPENMPI</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看有哪些相关包</span><br>dpkg -l | grep openmpi | awk <span class="hljs-string">&#x27;&#123;print $2&#125;&#x27;</span><br><br><span class="hljs-comment"># 删除（仅为示例，具体删除哪些包看上面命令的输出）</span><br><span class="hljs-built_in">sudo</span> apt remove -y --purge openmpi-bin openmpi-common libopenmpi-dev libopenmpi2:amd64<br><br><span class="hljs-comment"># 清理残余</span><br><span class="hljs-built_in">sudo</span> apt autoremove -y<br></code></pre></td></tr></table></figure><p>然后重新编译EDIPIC-2D的源代码：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 切换到源代码目录</span><br>make<br></code></pre></td></tr></table></figure><p>MPICH与OPENMPI冲突的表象：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">*** The MPI_Comm_f2c() <span class="hljs-keyword">function</span> was called before MPI_INIT was invoked.<br>*** This is disallowed by the MPI standard.<br>*** Your MPI job will now abort.<br>[ubuntu:3761] Local abort before MPI_INIT completed completed successfully, but am not able to aggregate error messages, and not able to guarantee that all other processes were killed!<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>edipic-2d</tag>
+      
+      <tag>Linux</tag>
+      
+      <tag>PIC</tag>
+      
+      <tag>并行计算</tag>
+      
+      <tag>高性能计算</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>编程小tips记录</title>
     <link href="/hexo-demo/2025/12/25/tips-summary/"/>
     <url>/hexo-demo/2025/12/25/tips-summary/</url>
@@ -35,15 +62,15 @@
     
     <tags>
       
-      <tag>warpx</tag>
-      
       <tag>Linux</tag>
       
-      <tag>conda</tag>
+      <tag>PIC</tag>
       
       <tag>并行计算</tag>
       
-      <tag>PIC</tag>
+      <tag>warpx</tag>
+      
+      <tag>conda</tag>
       
     </tags>
     
