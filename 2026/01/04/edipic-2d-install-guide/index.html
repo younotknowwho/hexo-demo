@@ -27,7 +27,7 @@
 <meta property="og:description" content="以Ubuntu 18.04为例（Ubuntu 2204亦可以）： 更新软件源：1sudo apt-get update  安装MPICH：1sudo apt-get install mpich  安装完成后，通过如下命令检验。如MPICH已成功安装完毕，则下述命令会输出各个程序的路径： 123which mpif90which mpiccwhich mpirun  安装PETSC：接下来我们需要安">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-01-04T06:09:37.000Z">
-<meta property="article:modified_time" content="2026-01-04T06:11:40.302Z">
+<meta property="article:modified_time" content="2026-01-06T11:31:56.152Z">
 <meta property="article:author" content="You Know Who">
 <meta property="article:tag" content="edipic-2d">
 <meta property="article:tag" content="Linux">
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          740 words
+          771 words
         
       </span>
     
@@ -321,6 +321,10 @@
 <p>MPICH与OPENMPI冲突的表象：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">*** The MPI_Comm_f2c() <span class="hljs-keyword">function</span> was called before MPI_INIT was invoked.<br>*** This is disallowed by the MPI standard.<br>*** Your MPI job will now abort.<br>[ubuntu:3761] Local abort before MPI_INIT completed completed successfully, but am not able to aggregate error messages, and not able to guarantee that all other processes were killed!<br></code></pre></td></tr></table></figure>
 
+<p>（2）Python distutils问题：</p>
+<p>Python 3.10 （Ubuntu 2204 自带）在配置 petsc 时，可能回出现 distutils 相关的bug，解决方法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install python3-distutils<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -397,6 +401,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/hexo-demo/2026/01/06/wsl-install-with-lxrunoffline/" title="用 LxRunOffline 安装 WSL">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">用 LxRunOffline 安装 WSL</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
